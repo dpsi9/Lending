@@ -79,7 +79,7 @@ pub fn process_deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
             user.deposited_usdc_shares += users_shares;
         },
         _ => {
-            user.deposited_sol += amount,
+            user.deposited_sol += amount;
             user.deposited_sol_shares += users_shares;
         }
     }
