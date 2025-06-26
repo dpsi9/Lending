@@ -1,7 +1,7 @@
 # 🏦 Solana Lending Protocol (Educational Project)
 
 This is a simple, educational **DeFi Lending Protocol** built on **Solana** using **Rust** and **Anchor Framework**.  
-It covers the core primitives of decentralized lending platforms like Aave or Compound — but built natively on-chain on Solana.
+It covers core primitives of decentralized lending platforms like **Aave** or **Compound** — but built natively on-chain on Solana.
 
 ---
 
@@ -14,18 +14,21 @@ It covers the core primitives of decentralized lending platforms like Aave or Co
 - ✅ Liquidation  
 - ✅ Bank and User Account Initialization  
 - ✅ Pyth Price Feed Integration (mocked for testing)  
-- ✅ Full Integration Tests (using **Anchor LiteSVM** for fast, in-memory testing)
+- ✅ Full Integration Tests using **Anchor LiteSVM** (for fast, in-memory testing)
 
 ---
 
 ## 🧱 Program Architecture
 
 ### ✅ Accounts:
+
 - **Bank:** Tracks global state for each token (deposits, borrows, interest rates, etc.)
 - **User:** Tracks each user’s deposit and borrow positions (including shares and health factor)
 
 ### ✅ Token Vaults:
-- **Treasury Token Accounts (PDAs):** Hold actual tokens for each bank (protocol-controlled vaults)
+
+- **Treasury Token Accounts (PDAs):**  
+  Hold actual tokens for each bank (protocol-controlled vaults)
 
 ### ✅ Instructions (Program Methods):
 
@@ -43,76 +46,73 @@ It covers the core primitives of decentralized lending platforms like Aave or Co
 
 ## 🧪 Testing
 
-- ✅ Full **Mocha + Anchor + LiteSVM** tests.
-- ✅ Covers full flow: **init → deposit → borrow → repay → withdraw → liquidate**.
-- ✅ Uses **mock Pyth price feeds** for testing price-dependent logic.
+- ✅ Full **Mocha + Anchor + LiteSVM** test suite.
+- ✅ Covers end-to-end flow:  
+  **init → deposit → borrow → repay → withdraw → liquidate**
+- ✅ Uses **mocked Pyth price feeds** for oracle-dependent logic.
 
----
-
-## 🚨 Disclaimer
-
-> **This project is for learning and educational purposes only. It is NOT audited and is NOT production-ready.**  
-There are unhandled edge cases, missing interest models, and incomplete liquidation safety checks.  
-**Do NOT deploy this to mainnet.**
-
----
-
-## 📚 Tech Stack
-
-- Rust  
-- Anchor  
-- Solana Program Library (SPL Token)  
-- Pyth Oracles (Mocked)  
-- Anchor LiteSVM (for fast local testing)
-
----
-
-## 📂 Project Structure
-LENDING/
-├── programs/
-│ └── lending/
-│ └── src/
-│ ├── instructions/
-│ │ ├── admin.rs
-│ │ ├── borrow.rs
-│ │ ├── deposit.rs
-│ │ ├── liquidate.rs
-│ │ ├── repay.rs
-│ │ └── withdraw.rs
-│ ├── state.rs
-│ ├── constants.rs
-│ ├── error.rs
-│ ├── lib.rs
-│ └── mod.rs
-├── tests/
-│ └── lending.ts
-├── Anchor.toml
-├── Cargo.toml
-├── package.json
-└── ...
-
----
-
-## 🏃 Running Tests Locally
-
----
-
-## 🏃 Running Tests Locally
+Run tests:
 
 ```bash
 anchor test --skip-build
 ```
-Make sure LiteSVM is installed and set up for Anchor testing.
+Make sure LiteSVM is installed and configured for Anchor.
 
+#📚 Tech Stack
+
+Rust
+
+Anchor Framework
+
+Solana Program Library (SPL Token)
+
+Pyth Oracles (Mocked)
+
+Anchor LiteSVM (for fast local testing)
+
+📂 Project Structure
+```
+LENDING/
+├── programs/
+│   └── lending/
+│       └── src/
+│           ├── instructions/
+│           │   ├── admin.rs
+│           │   ├── borrow.rs
+│           │   ├── deposit.rs
+│           │   ├── liquidate.rs
+│           │   ├── repay.rs
+│           │   └── withdraw.rs
+│           ├── state.rs
+│           ├── constants.rs
+│           ├── error.rs
+│           ├── lib.rs
+│           └── mod.rs
+├── tests/
+│   └── lending.ts
+├── Anchor.toml
+├── Cargo.toml
+├── package.json
+└── ...
+```
 ✅ Next Steps (Personal Learning Goals)
+
 ✅ Improve interest rate modeling (variable rate curves)
 
 ✅ Add real-time health factor tracking
 
-✅ Integrate with live Pyth price feeds (for testnet)
+✅ Integrate live Pyth price feeds (for testnet)
 
-✅ Build a frontend (React / Next.js) for user interaction
+
+🚨 Disclaimer
+This project is for educational purposes only. Not audited. Not production-ready.
+There are unhandled edge cases, missing interest logic, and incomplete liquidation safety checks.
+DO NOT deploy this to mainnet!
 
 ✅ License
-MIT License (Educational Use)
+MIT License (For educational use only)
+
+✅ Author
+
+Built by Dipendra Singh
 
