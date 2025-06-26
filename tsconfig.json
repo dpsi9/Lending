@@ -4,7 +4,23 @@
     "typeRoots": ["./node_modules/@types"],
     "lib": ["es2015"],
     "module": "commonjs",
-    "target": "es6",
-    "esModuleInterop": true
+    "target": "ES2020",
+        "esModuleInterop":  true,        // allow `import foo from "…"`  
+    "resolveJsonModule": true, 
+    // "esModuleInterop": true
   }
 }
+// {
+//   "compilerOptions": {
+//     "target":       "ES2020",        // BigInt & bigint **
+//     "module":       "commonjs",
+//     "moduleResolution": "node",
+//     "esModuleInterop":  true,        // allow `import foo from "…"`  
+//     "resolveJsonModule": true,       // allow `import IDL from "./*.json"`
+//     "strict":  true,
+//     "skipLibCheck": true,
+//     "types": ["node"],
+//     "lib":   ["ES2020"]
+//   },
+//   "include": ["tests/**/*", "src/**/*"]
+// }
