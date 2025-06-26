@@ -1,8 +1,9 @@
 use anchor_lang::prelude::*;
 use instructions::*;
+mod constants;
+mod error;
 mod instructions;
 mod state;
-mod error;
 declare_id!("6BUoL9HNuSHtju5PyYvcpEZhs1KhGwF3nCxin3AG1NbF");
 
 #[program]
@@ -25,8 +26,19 @@ pub mod lending {
         process_deposit(ctx, amount)
     }
 
-    pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()>{
+    pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
         process_withdraw(ctx, amount)
     }
+
+    pub fn borrow(ctx: Context<Borrow>, amount: u64) -> Result<()> {
+        process_borrow(ctx, amount)
+    }
+
+    pub fn repay(ctx: Context<Repay>, amount: u64) -> Result<()> {
+        process_repay(ctx, amount)
+    }
+
+    pub fn liquidate(ctx: Context<Liquidate>) -> Result<()> {
+        process_liquidate(ctx)
+    }
 }
- 
